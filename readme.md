@@ -15,5 +15,6 @@ npm run dev
 To add sample users in database
 ```bash
 cd api
+cd db
 node addUsers.js
 ```
