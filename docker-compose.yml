@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  backend:
+    build: ./api
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./api:/app
+    environment:
+      - NODE_ENV=production
+
+  frontend:
+    build: ./Frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
