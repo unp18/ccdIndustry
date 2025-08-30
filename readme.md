@@ -10,3 +10,10 @@ To run the frontend
 cd Frontend
 npm install
 npm run dev
+```
+
+To add sample users in database
+```bash
+cd api
+node addUsers.js
+```
