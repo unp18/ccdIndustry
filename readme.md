@@ -16,6 +16,6 @@ To add sample users in database
 ```bash
 cd api
 cd src
-cd db
+cd db 
 node addUsers.js
 ```
