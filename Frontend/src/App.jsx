@@ -1,11 +1,24 @@
 import React, { useState } from "react";
 import FileUpload from "./Components/FileUpload";
 import CompanyForm from "./Components/CompanyForm";
-
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import Navbar from "./Components/Navbar";
+import { useAuth } from "./context/AuthProvider.jsx";
 
 const App = () => {
   const [mode, setMode] = useState("manual");
+  const { isAuthenticated, loading } = useAuth();
+  const navigate = useNavigate();
+
+  // Redirect to login page if not authenticated
+  useEffect(() => {
+    if (loading) return;
+
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
+  }, [isAuthenticated, loading]);
 
   return (
     <div className="min-h-screen bg-gray-50">
