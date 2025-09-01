@@ -1,0 +1,5 @@
+companyName,profiles,pocName,pocEmail,pocPhone,pocStatus,pocRemarks
+TechNova,Frontend,Amit,amit@technova.com,9876543210,ongoing,TechNova
+TechNova,Backend,Nina,ninatechnova.com,9876543211,done,Callback
+notTechNova,SWE,Bula,Bula@Bula.com,6788787774,done,callback
+notTechNova,Quant,Bula,Bula@Bula.com,6788787774,done,callback
