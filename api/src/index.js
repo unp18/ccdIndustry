@@ -121,7 +121,7 @@ connectDB();
 // Middleware setup
 app.use(admin.options.rootPath, adminRouter);
 app.use(fUpload({ useTempFiles: true, tempFileDir: '/tmp/' }));
-app.use(cors({ origin: ['http://localhost:5173','https://ccd-industry.vercel.app'], credentials: true }));
+app.use(cors({ origin: ["http://localhost:5173","https://ccd-industry.vercel.app"], credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
