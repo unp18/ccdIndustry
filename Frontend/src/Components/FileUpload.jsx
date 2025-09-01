@@ -33,7 +33,7 @@ const FileUpload = () => {
     setError(null);
 
     try {
-      const response = await axios.post("http://localhost:8081/api/add-company-with-file", formData, {
+      const response = await axios.post(import.meta.env.VITE_API_BASE_URI + "/api/add-company-with-file", formData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'multipart/form-data',
