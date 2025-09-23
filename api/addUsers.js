@@ -11,9 +11,10 @@ const dummyUsers = [
     role: "admin",
     companies: [],
   },
+  { name: "UNP", email: "u.pandey@iitg.ac.in", role: "admin", companies: [] },
   {
-    name: "UNP",
-    email: "u.pandey@iitg.ac.in",
+    name: "Avinash Gupta",
+    email: "g.avinash@iitg.ac.in",
     role: "admin",
     companies: [],
   },
@@ -46,15 +47,27 @@ const dummyUsers = [
 async function insertUsers() {
   try {
     await mongoose.connect(MONGODB_URI);
-
     console.log("Connected to MongoDB");
 
-    await User.insertMany(dummyUsers);
-    console.log("✅ Dummy users inserted");
+    for (const u of dummyUsers) {
+      const res = await User.updateOne(
+        { email: u.email }, // match by unique email
+        { $setOnInsert: u }, // only set if inserting
+        { upsert: true } // insert if not found
+      );
 
-    mongoose.connection.close();
+      if (res.upsertedCount === 1) {
+        console.log(`✅ Inserted: ${u.email}`);
+      } else {
+        console.log(`↩️  Duplicate found, skipping: ${u.email}`);
+      }
+    }
+
+    console.log("Done.");
   } catch (err) {
     console.error("❌ Error inserting users:", err);
+  } finally {
+    await mongoose.connection.close();
   }
 }
 
