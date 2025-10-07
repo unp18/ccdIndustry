@@ -370,7 +370,7 @@ function Company({ name, profiles, pocs, id, setCompanies, userRole }) {
           <div className="flex-1">
             <h4 className="text-sm font-medium text-gray-500 mb-3">Points of Contact</h4>
             <div className="space-y-3">
-              {pocs.map((poc, index) => 
+              {pocs.map((poc, index) => {
                 const displayPOC = userRole === "dpr"
                   ? { ...poc, name: `HR${index + 1}`, email: `hr${index + 1}@example.com`, phone: 'XXXXXXX' }
                   : poc;
@@ -387,7 +387,8 @@ function Company({ name, profiles, pocs, id, setCompanies, userRole }) {
                   id={poc._id}
                   userRole={userRole}
                 />
-              ))}
+              );
+              })}
             </div>
           </div>
         </div>
