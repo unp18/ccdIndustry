@@ -305,11 +305,51 @@ function Company({ name, profiles, pocs, id, setCompanies, userRole }) {
     }
   };
 
+  const handleDeleteCompany = async () => {
+    if (!confirm(`Are you sure you want to delete ${name}?`)) return;
+
+    try {
+      const response = await fetch(
+        import.meta.env.VITE_API_BASE_URI + "/api/delete-company",
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: user.email,
+            companyId: id,
+          }),
+        }
+      );
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success("Company deleted successfully");
+        setCompanies((prev) => prev.filter((c) => c._id !== id));
+      } else {
+        toast.error(data.message || "Failed to delete company");
+      }
+    } catch (error) {
+      toast.error("Network request failed");
+    }
+  };
+
   return (
     <div className="bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
-      <div className="px-5 py-4 border-b border-gray-100 bg-gray-100">
+     <div className="px-5 py-4 border-b border-gray-100 bg-gray-100 flex justify-between items-center">
         <h3 className="text-lg font-medium text-gray-800">{name}</h3>
+
+        {userRole === "admin" && (
+          <button
+            onClick={() => handleDeleteCompany()}
+            className="text-red-600 text-sm hover:underline"
+          >
+            Delete Company
+          </button>
+        )}
       </div>
+
 
       <div className="p-5">
         <div className="flex flex-wrap gap-6">
