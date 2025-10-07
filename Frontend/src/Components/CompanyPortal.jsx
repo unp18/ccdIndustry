@@ -428,7 +428,7 @@ function POC({
   const statusColors = {
     "yet to contact": "bg-gray-100 text-gray-700",
     "ongoing": "bg-blue-50 text-blue-700",
-    "done": "bg-green-50 text-green-700",
+    "onboarded": "bg-green-50 text-green-700",
     "rejected": "bg-red-50 text-red-700"
   };
 
@@ -466,7 +466,7 @@ function POC({
           >
             <option value="yet to contact">Yet to contact</option>
             <option value="ongoing">Ongoing</option>
-            <option value="done">Onboarded</option>
+            <option value="onboarded">Onboarded</option>
             <option value="rejected">Rejected</option>
           </select>
         </div>
