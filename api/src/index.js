@@ -311,6 +311,28 @@ app.post('/api/update-poc-remarks', authGuard, async (req, res) => {
   }
 });
 
+// Delete Company
+app.delete('/api/delete-company', authGuard, async (req, res) => {
+  try {
+    const { companyId } = req.body;
+
+    if (!companyId) {
+      return res.status(400).json({ message: 'Missing required fields' });
+    }
+
+    const deletedCompany = await Company.findByIdAndDelete(companyId);
+
+    if (!deletedCompany) {
+      return res.status(404).json({ message: 'Company not found' });
+    }
+
+    res.status(200).json({ success: true, message: 'Company deleted successfully', deletedCompany });
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error', error: error.message });
+  }
+});
+
+
 const PORT = process.env.PORT || 8081;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
