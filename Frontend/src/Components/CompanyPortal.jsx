@@ -429,7 +429,7 @@ function POC({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="md:w-2/5">
           <div className="font-medium text-gray-800 mb-1">{name}</div>
-          <div className="flex items-center gap-4 text-sm text-gray-600">
+          {userRole === 'admin' && (<div className="flex items-center gap-4 text-sm text-gray-600">
             <a
               href={`mailto:${email}`}
               className="flex items-center gap-1 hover:text-blue-600 transition-colors"
@@ -446,7 +446,7 @@ function POC({
               <Phone size={16} />
               <span>{phone}</span>
             </a>
-          </div>
+          </div>)}
         </div>
 
         <div className="md:w-1/4">
