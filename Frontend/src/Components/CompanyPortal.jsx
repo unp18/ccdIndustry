@@ -458,7 +458,7 @@ function POC({
           >
             <option value="yet to contact">Yet to contact</option>
             <option value="ongoing">Ongoing</option>
-            <option value="done">Done</option>
+            <option value="done">Onboarded</option>
             <option value="rejected">Rejected</option>
           </select>
         </div>
