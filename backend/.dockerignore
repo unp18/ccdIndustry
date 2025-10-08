@@ -1,0 +1,16 @@
+# Ignore node_modules, as they will be installed inside the container
+node_modules
+
+# Ignore npm debug logs
+npm-debug.log
+
+# Ignore files specific to the Docker build process
+Dockerfile
+docker-compose.yml
+
+# Ignore git repository files
+.git
+.gitignore
+
+# Ignore environment files - these should be managed securely
+.env

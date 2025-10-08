@@ -1,0 +1,16 @@
+# Specifies the Docker Compose file format version.
+version: '3.9'
+
+# Defines the services (containers) that make up your application.
+services:
+  app:
+    build: .
+    container_name: industry_backend
+    restart: unless-stopped
+    ports:
+      - "5002:5002"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    env_file:
+      - .env
