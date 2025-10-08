@@ -29,7 +29,7 @@ const companySchema = new mongoose.Schema(
         },
         status: {
           type: String,
-          enum: ["done", "ongoing", "yet to contact", "rejected"],
+          enum: ["onboarded", "ongoing", "yet to contact", "rejected"],
           default: "yet to contact",
         },
         remarks: {
