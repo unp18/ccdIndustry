@@ -73,12 +73,14 @@ export default function CompanyPortal() {
       const lowerCaseProfiles = company.profiles.map((profile) =>
         profile.toLowerCase()
       );
-      const lowerCasePOCs = company.pocs.map((poc) => poc.name.toLowerCase());
+      let lowerCasePOCs = "";
       let lowerCasePOCEmails =[];
       if(userRole === 'admin') {
       lowerCasePOCEmails = company.pocs.map((poc) =>
         poc.email.toLowerCase()
-      );}
+      );
+      lowerCasePOCs = company.pocs.map((poc) => poc.name.toLowerCase());
+      }
       const lowerCasePOCStatus = company.pocs.map((poc) =>
         poc.status.toLowerCase()
       );
