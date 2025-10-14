@@ -73,7 +73,7 @@ export default function CompanyPortal() {
       const lowerCaseProfiles = company.profiles.map((profile) =>
         profile.toLowerCase()
       );
-      let lowerCasePOCs = "";
+      let lowerCasePOCs = [];
       let lowerCasePOCEmails =[];
       if(userRole === 'admin') {
       lowerCasePOCEmails = company.pocs.map((poc) =>
